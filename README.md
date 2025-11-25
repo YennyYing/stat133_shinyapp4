@@ -4,9 +4,12 @@
 An interactive Shiny app that simulates the growth of an S&P 500 investment based on user-selected time period, annual contributions, contribution timing, and contribution growth rate.
 Users can explore annual S&P 500 returns, visualize how their investment grows over time, and view a detailed investment table.
 
-**Link to project:** https://yuanying.shinyapps.io/stat133shinyapp2/
-<img src="https://github.com/YennyYing/stat133_shinyapp1/blob/main/california%20crash%20explorer.png" width="50%"><img src="https://github.com/YennyYing/stat133_shinyapp1/blob/main/california%20crash%20explorer2.png" width="50%">
-<img src="https://github.com/YennyYing/stat133_shinyapp1/blob/main/california%20crash%20explorer3.png" width="50%"><img src="https://github.com/YennyYing/stat133_shinyapp1/blob/main/california%20crash%20explorer4.png" width="50%">
+**Live App:** https://yuanying.shinyapps.io/stat133shinyapp2/
+
+<img src="https://github.com/YennyYing/stat133_shinyapp4/blob/main/sp500_1.png" width="80%">
+<img src="https://github.com/YennyYing/stat133_shinyapp4/blob/main/sp500_2.png" width="80%">
+<img src="https://github.com/YennyYing/stat133_shinyapp4/blob/main/sp500_3.png" width="80%">
+
 
 ## Author
 Yuan Ying  
@@ -18,33 +21,51 @@ Yuan Ying
 
 ## How It's Made:
 
-**Tech used:** R, Shiny, tidyverse, leaflet, plotly, sf
+This project combines **financial time series analysis** with **interactive visualization**.
+The app retrieves historical S&P 500 prices via `tq_get()` from `tidyquant`, converts daily data to annual returns (1928–2024), and generates a forward-looking investment simulation based on user inputs:
+- User-Defined Parameters
+- Initial investment
+- Annual contributions
+- Contribution timing: beginning vs. end of year
+- Annual growth rate of contributions
+- Time horizon for simulation
 
-This project was built as an interactive Shiny web application using R. I used **tidyverse** for data wrangling and visualization, **sf** and **maps** packages to handle California county polygons for choropleth mapping, **leaflet** for interactive web maps, and **plotly** for dynamic exploratory plots.  
+**Core Outputs:**
+- Annual S&P 500 return chart (interactive bar plot)
+- Portfolio growth timeline (area + line plot)
+- Detailed investment breakdown (interactive `DT::datatable()`)
 
-The crash data (2021–2023) was cleaned and preprocessed in R to allow filtering by year, location, county, and violation category. Interactive features include clickable crash points, choropleth maps showing county-level crash counts, and faceted trend plots by collision type and severity.  
+Together these components allow users to compare strategies and understand the long-term impact of compounding, market volatility, and contribution patterns.
 
-This project showcases my ability to combine data cleaning, geospatial mapping, and interactive visualization to make complex datasets accessible and insightful.
+---
 
 ## Features
-- Interactive map showing crash locations in California
-- County-level choropleth maps of crash counts
-- Trend analysis and exploratory plots by year, county, type of collision, and violation category
-- User-friendly filtering options
+- Fully interactive investment dashboard built with Shiny
+- Real S&P 500 historical data from Yahoo Finance
+- Reactive pipeline for dynamic recalculation of investment scenarios
+- Visual comparison of contribution strategies and market cycles
+- Detailed table of yearly balances, contributions, and returns
+- Clean, user-friendly UI design suitable for non-technical audiences
 
 ---
 
 ## Packages
 ```markdown
-The app uses the following R packages (install via `install.packages()` if needed):
 library(shiny)
 library(tidyverse)
-library(maps)
-library(leaflet)
+library(lubridate)
+library(tidyquant)
 library(plotly)
-library(sf)
+library(DT)
 ```
 ## Lessons Learned:
-Throughout the development of this project, I gained valuable experience in building interactive data applications and working with geospatial data in R. One key lesson was understanding how to efficiently handle large datasets and optimize Shiny reactivity to keep the app responsive. I also learned the importance of preprocessing data and transforming spatial objects correctly to avoid rendering issues in mapping libraries like `leaflet`.
+While developing this app, I gained experience in:
 
-This project strengthened my skills in integrating multiple R packages, structuring a Shiny app for clarity, and designing user-friendly visualizations. Most importantly, it taught me how to break down a complex dataset into accessible, meaningful insights through interactive visual exploration.
+- Working with **financial time series** and calculating **annualized returns**
+- Building scalable and efficient **reactive workflows** in Shiny
+- Designing intuitive **data applications** with interactive UI components
+- Integrating **ggplot2** with **plotly** for hybrid static–interactive graphics
+- Translating real-world **investment formulas** into reproducible R code
+- Managing performance and memory when processing **100 years of market data**
+
+This work strengthened my skills in financial modeling, user-centered app design, and building interactive analytical tools in R.
