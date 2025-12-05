@@ -3,7 +3,7 @@
 ## Description
 An interactive Shiny app that simulates the growth of an S&P 500 investment based on user-selected time period, annual contributions, contribution timing, and contribution growth rate.
 Users can explore annual S&P 500 returns, visualize how their investment grows over time, and view a detailed investment table.
-
+ 
 **Live App:** https://yuanying.shinyapps.io/stat133shinyapp2/
 
 <img src="https://github.com/YennyYing/stat133_shinyapp4/blob/main/sp500_1.png" width="80%">
